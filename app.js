@@ -8,12 +8,18 @@ const adress = document.querySelector(".adress span");
 const phone = document.querySelector(".phone span");
 const button = document.querySelector("button");
 
-// Fetch 
+
+// Fetch
 fetch("https://randomuser.me/api/")
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Something went wrong!");
+    }
+    return response.json();
+  })
   .then((data) => {
     let result = data.results[0];
- 
+
     console.log(result);
 
     img.src = result.picture.large;
@@ -23,11 +29,11 @@ fetch("https://randomuser.me/api/")
     mail.textContent += result.email;
     adress.textContent += `${result.location.street.name} ${result.location.city} ${result.location.postcode} ${result.location.country}`;
     phone.textContent += result.phone;
-
   })
   .catch((error) => {
     console.error("Hata:", error);
   });
-  // Event
-  button.addEventListener("click",()=>{location.reload();
-  })
+// Event
+button.addEventListener("click", () => {
+  location.reload();
+});
