@@ -13,10 +13,10 @@ const body = document.querySelector("body");
 
 const fetchData = async () => {
   try {
-    const response = await fetch("https://randomuser.me/api/a");
+    const response = await fetch("https://randomuser.me/api/");
     console.log(response);
     if (!response.ok) {
-      throw new Error("Something went wrong!");
+      throw new Error(`Something went wrong!"${response.status}`);
     }
 
     const data = await response.json();
