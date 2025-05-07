@@ -16,7 +16,7 @@ This project is a random person generator that utilizes the Fetch API along with
 
 The GIF below shows how the app works:
 
-![Demo GIF](assets/demo.gif)
+![Demo GIF](assets/randomUser.gif)
 
 ## ⚙️ Features
 
